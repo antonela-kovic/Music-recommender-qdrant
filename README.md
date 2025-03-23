@@ -2,14 +2,14 @@
 
 ---
 
-## 🧠 Opis projekta
+## Opis projekta
 Ovaj projekt implementira sustav za preporuku sadržaja koristeći **Qdrant** vektorsku bazu podataka. Sustav temelji preporuke na **semantičkoj sličnosti** između tekstualnih sadržaja, pri čemu koristi **AI modele** za generiranje **tekstualnih embeddinga**.
 
 Koriste se **prethodno istrenirani NLP modeli** (poput `sentence-transformers`) za pretvaranje teksta u numeričke vektore koji predstavljaju značenje teksta. Ti se vektori pohranjuju u Qdrant, koja zatim omogućuje brzo i efikasno pronalaženje sličnog sadržaja temeljenog na unosu korisnika.
 
 ---
 
-## 🎯 Ciljevi projekta
+## Ciljevi projekta
 - Razviti preporučni sustav temeljen na semantičkoj sličnosti teksta
 - Integrirati **Qdrant** kao NoSQL vektorsku bazu
 - Primijeniti **AI embedding model** za obradu tekstualnih podataka
@@ -18,7 +18,7 @@ Koriste se **prethodno istrenirani NLP modeli** (poput `sentence-transformers`) 
 
 ---
 
-## 🛠️ Korištene tehnologije
+## Korištene tehnologije
 - **Qdrant** (vektorska baza podataka)
 - **Python** + `qdrant-client` (integracija s bazom)
 - **Sentence-Transformers** (`all-MiniLM-L6-v2`) za generiranje embeddinga
@@ -27,7 +27,7 @@ Koriste se **prethodno istrenirani NLP modeli** (poput `sentence-transformers`) 
 
 ---
 
-## 🔄 Kratki opis arhitekture
+## Kratki opis arhitekture
 1. Korisnik unosi tekstualni upit
 2. AI model generira embedding tog teksta
 3. Qdrant pretražuje najbliže embeddinge po semantičkoj sličnosti
@@ -35,21 +35,21 @@ Koriste se **prethodno istrenirani NLP modeli** (poput `sentence-transformers`) 
 
 ---
 
-## 📦 Ulazni podaci (primjeri)
+## Ulazni podaci (primjeri)
 - Naslovi i opisi članaka
 - Kratki tekstovi (npr. opisi recepata, vijesti, filmova)
 - Svaki podatak sadrži: `id`, `tekst`, (opcionalno: `kategorija`, `datum`)
 
 ---
 
-## 📈 Očekivani rezultati
+## Očekivani rezultati
 - Funkcionalan demo u Colabu
 - Primjer kako AI i NoSQL mogu raditi zajedno u sustavu preporuka
 - Potencijalna ekspanzija s relacijskom bazom (za dodatni sloj podataka)
 
 ---
 
-## ✅ Status
+## Status
 Projekt je u fazi izrade i testiranja.
 
 ---
