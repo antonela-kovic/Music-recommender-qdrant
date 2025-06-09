@@ -33,10 +33,10 @@ Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljen
 
 2. Instaliraj virtualno okruženje i pokreni ga:
 
-
+   bash
    python -m venv venv
    venv\Scripts\activate  # Windows
-   # ili
+
    source venv/bin/activate  # macOS/Linux
    
 
