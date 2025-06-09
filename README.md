@@ -26,14 +26,14 @@ Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljen
 ## Pokretanje projekta
 
 1. Kloniraj repozitorij:
-   bash
+   
    git clone <repo-url>
    cd <repo-folder>
 
 
 2. Instaliraj virtualno okruženje i pokreni ga:
 
-   bash
+
    python -m venv venv
    venv\Scripts\activate  # Windows
    # ili
@@ -42,7 +42,7 @@ Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljen
 
 3. Instaliraj ovisnosti:
 
-   bash
+   
    pip install -r requirements.txt
    
 
@@ -55,7 +55,7 @@ Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljen
 
 5. Pokreni aplikaciju:
 
-   bash
+   
    python index_data.py
    
 
@@ -65,7 +65,7 @@ Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljen
 
 Za prikaz vizualizacija (distribucija žanrova, sentiment):
 
-bash
+
 python visualization.py
 
 
