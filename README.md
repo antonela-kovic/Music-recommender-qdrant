@@ -36,10 +36,10 @@ Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljen
    ```bash
    python -m venv venv
    venv\Scripts\activate  # Windows
-   
+   ```
    ```bash
    source venv/bin/activate  # macOS/Linux
-   
+   ```
 
 3. Instaliraj ovisnosti:
 
