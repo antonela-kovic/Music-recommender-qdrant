@@ -1,0 +1,15 @@
+flask
+sentence-transformers
+qdrant-client
+pandas
+python-dotenv
+
+# Postupak pokretanja aplikacije
+#  --> 1. pokrenemo virtualno okruženje: pip install -r requirements.txt i .\venv\Scripts\active
+#   ---> ukoliko je potrebno: pip install python-dotenv zbog .env datoteke
+#   ---> za analizu upita:p ip install textblob  / pip install stanza (za textblob)
+#  --> 2. unurar virtualnov okruzenja(venv) python api.py 
+#  --> 3. otvoriš stranicu link: http://127.0.0.1:5000/
+#  --> 4. za FresoundAPI: pip install git+https://github.com/mtg/freesound-python.git i pokreni freespind_downloader.py
+
+
