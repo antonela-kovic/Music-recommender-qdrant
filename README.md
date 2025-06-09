@@ -1,20 +1,20 @@
-# 📚 Content Recommendation System with Qdrant
+# Content Recommendation System with Qdrant
 
 Ovaj projekt omogućava korisnicima da dobiju preporuke pjesama na temelju opisa, emotikona i instrumenata. Također koristi sentiment analizu kako bi prilagodio preporuke raspoloženju korisnika.
 
-## 📦 Značajke
+## Značajke
 - Preporuka pjesama na temelju korisničkog unosa (tekstualni opis, emotikoni, instrumenti).
 - Sentiment analiza korisničkog opisa.
 - Vizualizacija distribucije žanrova u datasetu i prikaz sentimenta unosa.
 - Podrška za tamni i svijetli način rada.
 
-## 🗂️ Korišteni podaci
+## Korišteni podaci
 Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljene u 10 žanrova. Svaka pjesma traje 30 sekundi. Dataset uključuje CSV datoteke s metapodacima:
 - `gtzan_data.csv` — metapodaci pjesama
 - `features_30_sec.csv` — značajke pjesama (30 sekundi)
 - `features_3_sec.csv` — značajke pjesama (3 sekunde)
 
-## 🛠️ Tehnologije
+## Tehnologije
 - Python 3.12
 - Flask (za backend)
 - Qdrant (vektorska baza podataka za pretraživanje)
@@ -23,7 +23,7 @@ Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljen
 - Bootstrap (UI)
 - JavaScript (frontend)
 
-## 🚀 Pokretanje projekta
+## Pokretanje projekta
 1. Kloniraj repozitorij:
    ```bash
    git clone <repo-url>
@@ -54,9 +54,9 @@ Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljen
    ```bash
    python index_data.py
    ```
-6. Posjeti aplikaciju na `http://127.0.0.1:5000`
+6. Posjeti aplikaciju na 'http://127.0.0.1:5000'
 
-## 📊 Vizualizacije
+## Vizualizacija
 
 Za prikaz vizualizacija (distribucija žanrova, sentiment):
 
@@ -64,7 +64,7 @@ Za prikaz vizualizacija (distribucija žanrova, sentiment):
 python visualization.py
 ```
 
-## 💻 Korištenje
+## Korištenje
 
 * Otvori aplikaciju u pregledniku.
 * Unesi opis pjesme (npr. "Želim tužnu pjesmu koja me smiruje").
@@ -72,7 +72,7 @@ python visualization.py
 * Klikni "Pretraži" za preporuke.
 * Klikni gumb za tamni/svijetli način rada za prilagodbu teme.
 
-## 📂 Struktura projekta
+## Struktura projekta
 
 ```
 projekat/
