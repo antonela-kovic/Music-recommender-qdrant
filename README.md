@@ -26,28 +26,28 @@ Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljen
 ## Pokretanje projekta
 
 1. Kloniraj repozitorij:
-   
+   ```bash
    git clone <repo-url>
    cd <repo-folder>
    
 
 2. Instaliraj virtualno okruženje i pokreni ga:
 
-   
+   ```bash
    python -m venv venv
    venv\Scripts\activate  # Windows
-
+```bash
    source venv/bin/activate  # macOS/Linux
    
 
 3. Instaliraj ovisnosti:
 
-   
+   ```bash
    pip install -r requirements.txt
    
 
 4. Postavi varijable okruženja u `.env` datoteku:
-
+ ```bash
    env
    QDRANT_URL=<tvoj_qdrant_url>
    QDRANT_API_KEY=<tvoj_qdrant_api_key>
@@ -55,7 +55,7 @@ Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljen
 
 5. Pokreni aplikaciju:
 
-   
+   ```bash
    python index_data.py
    
 
@@ -65,7 +65,7 @@ Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljen
 
 Za prikaz vizualizacija (distribucija žanrova, sentiment):
 
-
+```bash
 python visualization.py
 
 
