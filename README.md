@@ -64,7 +64,7 @@ Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljen
 
 ## Vizualizacija
 
-Za prikaz vizualizacija (distribucija žanrova, sentiment):
+   Za prikaz vizualizacija (distribucija žanrova, sentiment):
 
    ```bash
    python visualization.py
@@ -72,33 +72,33 @@ Za prikaz vizualizacija (distribucija žanrova, sentiment):
 
 ## Korištenje
 
-* Otvori aplikaciju u pregledniku.
-* Unesi opis pjesme (npr. "Želim tužnu pjesmu koja me smiruje").
-* Dodaj emotikone i/ili instrumente ako želiš.
-* Klikni "Pretraži" za preporuke.
-* Klikni gumb za tamni/svijetli način rada za prilagodbu teme.
+   * Otvori aplikaciju u pregledniku.
+   * Unesi opis pjesme (npr. "Želim tužnu pjesmu koja me smiruje").
+   * Dodaj emotikone i/ili instrumente ako želiš.
+   * Klikni "Pretraži" za preporuke.
+   * Klikni gumb za tamni/svijetli način rada za prilagodbu teme.
 
 ## Struktura projekta
-
-```
-projekat/
-│
-├── data/
-│   ├── gtzan_data.csv
-│   ├── features_30_sec.csv
-│   └── features_3_sec.csv
-│
-├── templates/
-│   └── index.html
-│
-├── static/
-│   └── style.css
-│
-├── recommender.py
-├── index_data.py
-├── visualization.py
-├── requirements.txt
-└── README.md
-```
+   
+   ```
+   projekat/
+   │
+   ├── data/
+   │   ├── gtzan_data.csv
+   │   ├── features_30_sec.csv
+   │   └── features_3_sec.csv
+   │
+   ├── templates/
+   │   └── index.html
+   │
+   ├── static/
+   │   └── style.css
+   │
+   ├── recommender.py
+   ├── index_data.py
+   ├── visualization.py
+   ├── requirements.txt
+   └── README.md
+   ```
 
 
