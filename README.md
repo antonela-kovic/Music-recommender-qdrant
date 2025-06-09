@@ -1,58 +1,101 @@
 # 📚 Content Recommendation System with Qdrant
 
----
+Ovaj projekt omogućava korisnicima da dobiju preporuke pjesama na temelju opisa, emotikona i instrumenata. Također koristi sentiment analizu kako bi prilagodio preporuke raspoloženju korisnika.
 
-## Opis projekta
-Ovaj projekt implementira sustav za preporuku sadržaja koristeći **Qdrant** vektorsku bazu podataka. Sustav temelji preporuke na **semantičkoj sličnosti** između tekstualnih sadržaja, pri čemu koristi **AI modele** za generiranje **tekstualnih embeddinga**.
+## 📦 Značajke
+- Preporuka pjesama na temelju korisničkog unosa (tekstualni opis, emotikoni, instrumenti).
+- Sentiment analiza korisničkog opisa.
+- Vizualizacija distribucije žanrova u datasetu i prikaz sentimenta unosa.
+- Podrška za tamni i svijetli način rada.
 
-Koriste se **prethodno istrenirani NLP modeli** (poput `sentence-transformers`) za pretvaranje teksta u numeričke vektore koji predstavljaju značenje teksta. Ti se vektori pohranjuju u Qdrant, koja zatim omogućuje brzo i efikasno pronalaženje sličnog sadržaja temeljenog na unosu korisnika.
+## 🗂️ Korišteni podaci
+Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljene u 10 žanrova. Svaka pjesma traje 30 sekundi. Dataset uključuje CSV datoteke s metapodacima:
+- `gtzan_data.csv` — metapodaci pjesama
+- `features_30_sec.csv` — značajke pjesama (30 sekundi)
+- `features_3_sec.csv` — značajke pjesama (3 sekunde)
 
----
+## 🛠️ Tehnologije
+- Python 3.12
+- Flask (za backend)
+- Qdrant (vektorska baza podataka za pretraživanje)
+- SentenceTransformer (generiranje embeddingsa)
+- Matplotlib (vizualizacije)
+- Bootstrap (UI)
+- JavaScript (frontend)
 
-## Ciljevi projekta
-- Razviti preporučni sustav temeljen na semantičkoj sličnosti teksta
-- Integrirati **Qdrant** kao NoSQL vektorsku bazu
-- Primijeniti **AI embedding model** za obradu tekstualnih podataka
-- Omogućiti korisniku da unese tekst i dobije relevantne preporuke
-- Demonstrirati razlikovanje i suradnju između SQL (opcionalno) i NoSQL baza
+## 🚀 Pokretanje projekta
+1. Kloniraj repozitorij:
+   ```bash
+   git clone <repo-url>
+   cd <repo-folder>
+````
 
----
+2. Instaliraj virtualno okruženje i pokreni ga:
 
-## Korištene tehnologije
-- **Qdrant** (vektorska baza podataka)
-- **Python** + `qdrant-client` (integracija s bazom)
-- **Sentence-Transformers** (`all-MiniLM-L6-v2`) za generiranje embeddinga
-- **Google Colab** kao razvojno okruženje
-- (Opcionalno) **SQLite** za relacijsku bazu s metapodacima
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate  # Windows
+   # ili
+   source venv/bin/activate  # macOS/Linux
+   ```
+3. Instaliraj ovisnosti:
 
----
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Postavi varijable okruženja u `.env` datoteku:
 
-## Kratki opis arhitekture
-1. Korisnik unosi tekstualni upit
-2. AI model generira embedding tog teksta
-3. Qdrant pretražuje najbliže embeddinge po semantičkoj sličnosti
-4. Sustav vraća relevantne sadržaje kao preporuke
+   ```env
+   QDRANT_URL=<tvoj_qdrant_url>
+   QDRANT_API_KEY=<tvoj_qdrant_api_key>
+   ```
+5. Pokreni aplikaciju:
 
----
+   ```bash
+   python index_data.py
+   ```
+6. Posjeti aplikaciju na `http://127.0.0.1:5000`
 
-## Ulazni podaci (primjeri)
-- Naslovi i opisi članaka
-- Kratki tekstovi (npr. opisi recepata, vijesti, filmova)
-- Svaki podatak sadrži: `id`, `tekst`, (opcionalno: `kategorija`, `datum`)
+## 📊 Vizualizacije
 
----
+Za prikaz vizualizacija (distribucija žanrova, sentiment):
 
-## Očekivani rezultati
-- Funkcionalan demo u Colabu
-- Primjer kako AI i NoSQL mogu raditi zajedno u sustavu preporuka
-- Potencijalna ekspanzija s relacijskom bazom (za dodatni sloj podataka)
+```bash
+python visualization.py
+```
 
----
+## 💻 Korištenje
 
-## Status
-Projekt je u fazi izrade i testiranja.
+* Otvori aplikaciju u pregledniku.
+* Unesi opis pjesme (npr. "Želim tužnu pjesmu koja me smiruje").
+* Dodaj emotikone i/ili instrumente ako želiš.
+* Klikni "Pretraži" za preporuke.
+* Klikni gumb za tamni/svijetli način rada za prilagodbu teme.
 
----
+## 📂 Struktura projekta
+
+```
+projekat/
+│
+├── data/
+│   ├── gtzan_data.csv
+│   ├── features_30_sec.csv
+│   └── features_3_sec.csv
+│
+├── templates/
+│   └── index.html
+│
+├── static/
+│   └── style.css
+│
+├── recommender.py
+├── index_data.py
+├── visualization.py
+├── requirements.txt
+└── README.md
+```
+
+
 
 
 
