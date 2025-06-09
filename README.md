@@ -24,6 +24,7 @@ Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljen
 - JavaScript (frontend)
 
 ## Pokretanje projekta
+
 1. Kloniraj repozitorij:
    ```bash
    git clone <repo-url>
@@ -38,23 +39,27 @@ Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljen
    # ili
    source venv/bin/activate  # macOS/Linux
    ```
+
 3. Instaliraj ovisnosti:
 
    ```bash
    pip install -r requirements.txt
    ```
+
 4. Postavi varijable okruženja u `.env` datoteku:
 
    ```env
    QDRANT_URL=<tvoj_qdrant_url>
    QDRANT_API_KEY=<tvoj_qdrant_api_key>
    ```
+
 5. Pokreni aplikaciju:
 
    ```bash
    python index_data.py
    ```
-6. Posjeti aplikaciju na 'http://127.0.0.1:5000'
+
+6. Posjeti aplikaciju na `http://127.0.0.1:5000`.
 
 ## Vizualizacija
 
@@ -95,8 +100,7 @@ projekat/
 └── README.md
 ```
 
+```
 
-
-
-
-
+Ako želiš, mogu ti ga i dodatno prilagoditi ili formatirati! 🚀
+```
