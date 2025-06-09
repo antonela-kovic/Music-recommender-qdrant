@@ -66,8 +66,8 @@ Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljen
 
 Za prikaz vizualizacija (distribucija žanrova, sentiment):
 
-```bash
-python visualization.py
+   ```bash
+   python visualization.py
 
 
 ## Korištenje
