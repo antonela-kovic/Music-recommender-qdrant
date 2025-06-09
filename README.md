@@ -36,7 +36,8 @@ Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljen
    ```bash
    python -m venv venv
    venv\Scripts\activate  # Windows
-```bash
+   
+   ```bash
    source venv/bin/activate  # macOS/Linux
    
 
@@ -47,7 +48,7 @@ Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljen
    
 
 4. Postavi varijable okruženja u `.env` datoteku:
- ```bash
+   ```bash
    env
    QDRANT_URL=<tvoj_qdrant_url>
    QDRANT_API_KEY=<tvoj_qdrant_api_key>
