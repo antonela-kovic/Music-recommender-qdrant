@@ -68,7 +68,7 @@ Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljen
 
    ```bash
    python visualization.py
-
+   ```
 
 ## Korištenje
 
@@ -99,6 +99,6 @@ Projekt koristi **GTZAN dataset** s **Kaggle-a**, koji sadrži pjesme podijeljen
    ├── visualization.py
    ├── requirements.txt
    └── README.md
-   ```
+  ```
 
 
