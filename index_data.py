@@ -1,18 +1,15 @@
-# index_data.py
-from recommender import MusicRecommender
-from dotenv import load_dotenv
+"""Build the track descriptions and (re)index them in Qdrant.
+
+Usage: python index_data.py
+"""
 import os
+
+from dotenv import load_dotenv
+
+from recommender import MusicRecommender, load_dataset, make_client
 
 load_dotenv()
 
-QDRANT_URL = os.getenv("QDRANT_URL")
-QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
-
-recommender = MusicRecommender(QDRANT_URL, QDRANT_API_KEY)
-
-# Load CSV, add descriptions, index embeddings
-df = recommender.load_data("data/gtzan_data.csv")
-df = recommender.add_descriptions(df)
-recommender.index_embeddings(df)
-
-print("Embeddingi uspješno generirani i pohranjeni u Qdrant!")
+recommender = MusicRecommender(make_client(os.getenv("QDRANT_URL"), os.getenv("QDRANT_API_KEY")))
+count = recommender.index(load_dataset())
+print(f"Indexed {count} tracks in Qdrant.")

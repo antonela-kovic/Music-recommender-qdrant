@@ -1,85 +1,63 @@
-import pandas as pd
+"""Dataset plots: tracks per genre, audio features per genre and the feature correlation matrix.
+
+Usage: python visualization.py   (saves PNG files to docs/)
+"""
+import os
+
 import matplotlib.pyplot as plt
+import pandas as pd
 import seaborn as sns
 
-
-# 1. Distribucija pjesama po žanrovima (dataset)
-def prikazi_distribuciju(df):
-    genre_counts = df['label'].value_counts()
-
-    plt.figure(figsize=(10, 6))
-    genre_counts.plot(kind='bar', color='skyblue')
-    plt.xlabel('Žanrovi')
-    plt.ylabel('Broj pjesama')
-    plt.title('Broj pjesama po žanrovima u kolekciji')
-    plt.xticks(rotation=45)
-    plt.tight_layout()
-    plt.show()
-
-# 2. Korelacija značajki
-def prikazi_korelaciju(df):
-    plt.figure(figsize=(12, 10))
-    # Ovdje filtriramo samo numeričke podatke
-    numeric_df = df.select_dtypes(include=['number'])
-    corr_matrix = numeric_df.corr()
-    sns.heatmap(corr_matrix, annot=False, cmap='coolwarm')
-    plt.title('Korelacija između značajki')
-    plt.tight_layout()
-    plt.show()
+OUT_DIR = "docs"
 
 
-# 3. Distribucija sentimenta iz liste
-def prikazi_sentiment_distribuciju(sentiments):
-    sentiment_counts = pd.Series(sentiments).value_counts()
-    plt.figure(figsize=(6, 4))
-    sentiment_counts.plot(kind='bar', color=['lightgreen', 'lightcoral', 'lightgray'])
-    plt.xlabel('Sentiment')
-    plt.ylabel('Broj pojavljivanja')
-    plt.title('Distribucija sentimenta')
-    plt.xticks(rotation=0)
-    plt.tight_layout()
-    plt.show()
-
-# 4. Prikaz distribucije preporučenih žanrova
-def prikazi_zanrove(recommendations):
-    genre_counts = {}
-    for rec in recommendations:
-        genre = rec['genre']
-        genre_counts[genre] = genre_counts.get(genre, 0) + 1
-
-    genres = list(genre_counts.keys())
-    counts = list(genre_counts.values())
-
-    plt.figure(figsize=(8, 7))
-    plt.bar(genres, counts, color='lightblue')
-    plt.xlabel('Žanrovi')
-    plt.ylabel('Broj pjesama')
-    plt.title('Raspodjela preporučenih žanrova')
-    plt.xticks(rotation=45)
-    plt.tight_layout()
-    plt.show()
+def save(fig, name):
+    os.makedirs(OUT_DIR, exist_ok=True)
+    path = os.path.join(OUT_DIR, name)
+    fig.savefig(path, dpi=150, bbox_inches="tight")
+    plt.close(fig)
+    print(f"Saved {path}")
 
 
-# Glavni dio za testiranje
+def plot_genre_distribution(tracks):
+    fig, ax = plt.subplots(figsize=(9, 4))
+    tracks["label"].value_counts().sort_index().plot(kind="bar", color="#4C72B0", ax=ax)
+    ax.set_xlabel("Genre")
+    ax.set_ylabel("Number of tracks")
+    ax.set_title("Tracks per genre (GTZAN)")
+    ax.tick_params(axis="x", rotation=45)
+    save(fig, "genre_distribution.png")
+
+
+def plot_features_by_genre(features):
+    features = features.assign(genre=features["filename"].str.split(".").str[0])
+    fig, axes = plt.subplots(1, 3, figsize=(15, 4), sharey=False)
+    for ax, (column, label) in zip(axes, [
+        ("tempo", "Tempo (BPM)"),
+        ("rms_mean", "Energy (mean RMS)"),
+        ("spectral_centroid_mean", "Brightness (spectral centroid, Hz)"),
+    ]):
+        order = features.groupby("genre")[column].median().sort_values().index
+        sns.boxplot(data=features, x="genre", y=column, order=order, ax=ax, color="#9ecae1", fliersize=2)
+        ax.set_title(label)
+        ax.set_xlabel("")
+        ax.set_ylabel("")
+        ax.tick_params(axis="x", rotation=45)
+    fig.suptitle("Audio features used in the track descriptions", y=1.04)
+    save(fig, "features_by_genre.png")
+
+
+def plot_feature_correlation(features):
+    numeric = features.select_dtypes(include="number").drop(columns=["length"], errors="ignore")
+    fig, ax = plt.subplots(figsize=(12, 10))
+    sns.heatmap(numeric.corr(), cmap="coolwarm", center=0, ax=ax)
+    ax.set_title("Correlation between audio features")
+    save(fig, "feature_correlation.png")
+
+
 if __name__ == "__main__":
-    # 1. Distribucija pjesama po žanrovima (gtzan_data)
-    df = pd.read_csv("data/gtzan_data.csv")
-    prikazi_distribuciju(df)
-
-    # 2. Korelacija značajki (features_30_sec)
-    features_df = pd.read_csv("data/features_30_sec.csv")
-    prikazi_korelaciju(features_df)
-
-    # 3. Distribucija sentimenta za više unosa (test lista)
-    test_sentiments = ['positive', 'negative', 'neutral', 'positive', 'negative']
-    prikazi_sentiment_distribuciju(test_sentiments)
-
-    # 4. Prikaz preporučenih žanrova (test lista)
-    test_recommendations = [
-        {"genre": "pop"},
-        {"genre": "pop"},
-        {"genre": "jazz"},
-        {"genre": "classical"},
-        {"genre": "jazz"},
-    ]
-    prikazi_zanrove(test_recommendations)
+    tracks = pd.read_csv(os.path.join("data", "gtzan_data.csv"))
+    features = pd.read_csv(os.path.join("data", "features_30_sec.csv"))
+    plot_genre_distribution(tracks)
+    plot_features_by_genre(features)
+    plot_feature_correlation(features)

@@ -1,21 +1,27 @@
+"""Create data/gtzan_data.csv from the GTZAN audio folder (data/genres_original/<genre>/*.wav).
+
+Only needed if you download the audio files yourself; the CSV is already in the repository.
+"""
 import os
+
 import pandas as pd
 
-root_dir = 'data/genres_original'  # Gdje su svi žanrovi
+ROOT_DIR = os.path.join("data", "genres_original")
 
-data = []
-for genre in os.listdir(root_dir):
-    genre_path = os.path.join(root_dir, genre)
-    if os.path.isdir(genre_path):
-        for file in os.listdir(genre_path):
-            if file.endswith('.wav'):
-                data.append({
-                    'id': len(data) + 1,
-                    'filename': file,
-                    'label': genre,
-                    'filepath': f"{genre}/{file}"  # Relativna putanja
-                })
+rows = []
+for genre in sorted(os.listdir(ROOT_DIR)):
+    genre_path = os.path.join(ROOT_DIR, genre)
+    if not os.path.isdir(genre_path):
+        continue
+    for file in sorted(os.listdir(genre_path)):
+        if file.endswith(".wav"):
+            rows.append({
+                "id": len(rows) + 1,
+                "filename": file,
+                "label": genre,
+                "filepath": f"{genre}/{file}",  # relative to ROOT_DIR
+            })
 
-df = pd.DataFrame(data)
-df.to_csv('data/gtzan_data.csv', index=False)
-print(f"CSV generiran s {len(df)} pjesama!")
+df = pd.DataFrame(rows)
+df.to_csv(os.path.join("data", "gtzan_data.csv"), index=False)
+print(f"CSV created with {len(df)} tracks.")

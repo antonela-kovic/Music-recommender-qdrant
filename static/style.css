@@ -1,0 +1,47 @@
+/* Mood and instrument chips */
+.chip {
+  border: 1px solid #ced4da;
+  background: transparent;
+  border-radius: 999px;
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.chip.emoji {
+  font-size: 1.5rem;
+  padding: 2px 10px;
+}
+
+.chip.active {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: #fff;
+}
+
+/* Dark mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+body.dark-mode .card {
+  background-color: #1e1e1e;
+  border-color: #2c2c2c;
+  color: #f1f1f1;
+}
+
+body.dark-mode .form-control {
+  background-color: #2a2a2a;
+  border-color: #3a3a3a;
+  color: #f1f1f1;
+}
+
+body.dark-mode .text-muted {
+  color: #b5b5b5 !important;
+}
+
+body.dark-mode .chip {
+  border-color: #555;
+  color: #f1f1f1;
+}
