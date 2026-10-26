@@ -4,7 +4,7 @@ A semantic music recommender: describe the music you want in plain English ("a c
 
 **Stack:** Python · Qdrant · sentence-transformers (`all-MiniLM-L6-v2`) · TextBlob · Flask · Bootstrap · pandas · pytest
 
-<!-- TODO: add a screenshot of the web app, e.g. docs/app.png -->
+![Web app](docs/app.png)
 
 ---
 
