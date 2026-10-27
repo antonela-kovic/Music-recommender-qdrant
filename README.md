@@ -98,6 +98,7 @@ The tests use an in-memory Qdrant and a small word-hashing encoder instead of th
 
 - The descriptions are generated from the genre and three audio features, not from listening data or lyrics, so the recommender matches the *described character* of a track rather than personal taste.
 - The genre boosts are hand-tuned; an evaluation with user feedback would be needed to tune them properly.
+- GTZAN (2002) is small (1,000 clips, 10 genres) and has known faults such as repeated clips and some mislabelled tracks (B. L. Sturm, *The GTZAN dataset: Its contents, its faults, their effects on evaluation, and the future use*, 2013). It was chosen because it is the standard, well-documented benchmark for music genres; a larger, more recent dataset such as the [Free Music Archive (FMA)](https://github.com/mdeff/fma) would be the next step.
 
 ## Data
 
